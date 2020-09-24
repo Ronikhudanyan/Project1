@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     const gameWindow = document.querySelector('.game-window')
     const terrain = document.querySelector('.terrain')
     const bird = document.querySelector('.bird')
-
+    const playerDisplay = document.querySelector('.score')
     // set up the positioning of the bird once the page is loaded
     
     let birdFromLeft = 290 //I want the bird to start in the middle of the window, if the W of my window is 700 -60 ps for the bird = 290 for middle
@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     let downForce = 2
     let isGameOver = false
     let gap = 440
+    let counter = 0
     // let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
     // let poleFromLeft = 700 //start making poles at the farthest end of the sky
     // let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
@@ -51,6 +52,8 @@ document.addEventListener('DOMContentLoaded' , () => {
             if(!isGameOver){
             pole.classList.add('pole') 
             abovePole.classList.add('abovePole')
+            counter++;
+            playerDisplay.innerText = 'Score:' + counter
             
             
             }
@@ -79,7 +82,7 @@ document.addEventListener('DOMContentLoaded' , () => {
                     youLost()
                     clearInterval(poleTimer)
                 }
-                
+                console.log(counter)
                 
                 
             }
