@@ -31,3 +31,12 @@
     height: 300px;
     position: absolute;
 }
+
+.abovePole {
+    background-color: green;
+    transform: rotate(180deg);
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    
+}

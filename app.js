@@ -8,16 +8,17 @@ document.addEventListener('DOMContentLoaded' , () => {
     let birdFromLeft = 290 //I want the bird to start in the middle of the window, if the W of my window is 700 -60 ps for the bird = 290 for middle
     let birdFromBottom = 100 //bird starts floating 100 px from the bottom
     let isGameOver = false
+    let gap = 400
     // let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
     // let poleFromLeft = 700 //start making poles at the farthest end of the sky
     // let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
     //adding start game styling so bird will start in a specific position on the window
     function startGame() {
         birdFromBottom -= downForce // subtracts 2 px each time the space bar is not clicked, gives the effect of falling bird
-        bird.style.left = birdFromLeft + 'px'
         bird.style.bottom = birdFromBottom + 'px' 
+        bird.style.left = birdFromLeft + 'px'
         
-    
+        
         }
         let birdTimer = setInterval(startGame, 19) //everything above to happen every 19 ms
 
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         
         
         function float() {       //Function that is moving the bird up and forward when space bar is clicked
-            if(birdFromBottom<420)birdFromBottom += 50 //as long as bird is under 480 px we can continue jumping this is to stop bird from leaving window
+            if(birdFromBottom<500) birdFromBottom += 50 //as long as bird is under 480 px we can continue jumping this is to stop bird from leaving window
             bird.style.bottom = birdFromBottom + 'px' //adds px everytime the float function is invoked
             console.log(birdFromBottom)
             
@@ -42,24 +43,37 @@ document.addEventListener('DOMContentLoaded' , () => {
             let randomPoleHeight = Math.random() * 60  //creates a random pole that is with the Width of 60 (because 60 is what i have as the width in css)
             let poleFromLeft = 700 //start making poles at the farthest end of the sky
             let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
+            const abovePole = document.createElement('div')
             const pole = document.createElement('div') /*  creating a div */
-            if(!isGameOver)pole.classList.add('pole') 
+            if(!isGameOver){
+            pole.classList.add('pole') 
+            abovePole.classList.add('abovePole')
+            
+            
+            }
             gameWindow.appendChild(pole) // creating a div called pole and appending it to our game window container
+            gameWindow.appendChild(abovePole)
             pole.style.left = poleFromLeft + 'px'   // move closer to left 
+            abovePole.style.left = poleFromLeft + 'px'
             pole.style.bottom = poleFromBottom + 'px'
+            abovePole.style.bottom = poleFromBottom + gap + 'px'
 
             function poleRoll() { //each time move obstacle is invoked the obstacle will move 2PX to the left
                 poleFromLeft -=2
                 pole.style.left = poleFromLeft + 'px'
+                abovePole.style.left = poleFromLeft + 'px'
                 
     
                 if (poleFromLeft === -4) {  //removes pole when the pole hits end of window
                     clearInterval(poleTimer)
                     gameWindow.removeChild(pole)
+                    gameWindow.removeChild(abovePole)
                     
                 }
                 if(
-                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290||birdFromBottom === 0) {  
+                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && 
+                    (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap -100)||
+                    birdFromBottom === 0) {  
                         // if the bird hits the terrain or the poles then invoke youLost, comparing pixels to decide when collision happens
                     youLost()
                     clearInterval(poleTimer)

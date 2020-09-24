@@ -38,19 +38,21 @@ contrary to what I believed before (in pole timing interval), the from from left
 the game was creating poles when the game was already over, wrapped the add element pole life in an if statment. Made a conditional, If the bird has hit the ground or the pole then the game is over stop generating new poles
 
 - Bird/Pole collision:
-I am trying to use the same logic for bird and pole collision as bird and ground collision but it was not working. 
+I am trying to use the same logic for bird and pole collision as bird and ground collision but it was not working. ended up adding an if statment that will calulate the placment of the pole vs my bird. I was having trouble with this and was about to give up. The game was ending every time it flew over a pole. I messed around with the pixel numbers  and got it to somewhere reasonable
 
 
 
 
 
 site sources:
--Key up events: https://developer.mozilla.org/en-US/docs/Web/API/Document/keyup_event
--Key Codes: https://keycode.info/
--Generate random obstacle height logic 01- 
+- Key up events: https://developer.mozilla.org/en-US/docs/Web/API/Document/keyup_event
+- Key Codes: https://keycode.info/
+- Generate random obstacle height logic 01: 
 https://github.com/Beat0154/FlappyBird/blob/master/script.js
-
--generate random obstacle hight logic 02-
+- generate random obstacle hight logic 02:
 https://stackoverflow.com/questions/54263302/how-do-i-make-random-generating-objects-come-on-my-screen
+**// used a little bit of both (01 and 02) to make it work with my code**
 
--Timing functions: https://tmdarneille.gitbook.io/seirfx/javascript/01functions/03timing-functions
+- Timing functions: https://tmdarneille.gitbook.io/seirfx/javascript/01functions/03timing-functions
+- CSS Transform property: https://www.w3schools.com/cssref/css3_pr_transform.asp
+- Gap between pole logic: https://www.w3schools.com/JSREF/prop_style_columngap.asp
