@@ -21,3 +21,8 @@ create a jump function
 -try to give sound to the game
 
 -once game is over, give an option for reset button
+
+
+site sources:
+-Key up events: https://developer.mozilla.org/en-US/docs/Web/API/Document/keyup_event
+-Key Codes: https://keycode.info/

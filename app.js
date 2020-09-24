@@ -18,7 +18,20 @@ document.addEventListener('DOMContentLoaded' , () => {
         }
         let birdTimer = setInterval(startGame, 19) //everything above to happen every 19 ms
 
-
+        function spaceBar(e) {           //insuring only the spacebar can be used
+            if(e.keyCode === 32) {
+                float()
+            }
+        }
+        
+        
+        function float() {       //Function that is moving the bird up and forward when space bar is clicked
+            if(birdFromBottom<420)birdFromBottom += 50 //as long as bird is under 480 px we can continue jumping this is to stop bird from leaving window
+            bird.style.bottom = birdFromBottom + 'px' //adds px everytime the float function is invoked
+            
+        }
+    
+        document.addEventListener('keyup', spaceBar)
 
 
 
