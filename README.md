@@ -23,11 +23,25 @@ create a jump function
 -once game is over, give an option for reset button
 
 
+
+Issues I ran into:
+- Generating random pole heights:
+Originally I was going to use some login from (logic 01) to generate a new pole method. It was not working with my code as his was written differently. I then realized through our class notes for scope, it had to be done within the function and I had to use the correct px dimensions to get it to work.
+
+- Pole timing interval:
+I had a similar issue here. The timing interval was not getting called, I could not figure out why. Once I reffered back to my notes and in comparison to the bird timer, I realized it was being called within the function rahter than outside the function & if statment. I was also missing the function and only thought I needed to insert the milliseconds.
+
+
+
+
+
 site sources:
 -Key up events: https://developer.mozilla.org/en-US/docs/Web/API/Document/keyup_event
 -Key Codes: https://keycode.info/
--Generate random obstacle height logic 01-
+-Generate random obstacle height logic 01- 
 https://github.com/Beat0154/FlappyBird/blob/master/script.js
 
 -generate random obstacle hight logic 02-
 https://stackoverflow.com/questions/54263302/how-do-i-make-random-generating-objects-come-on-my-screen
+
+-Timing functions: https://tmdarneille.gitbook.io/seirfx/javascript/01functions/03timing-functions

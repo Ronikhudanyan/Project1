@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded' , () => {
     let downForce = 2
     let birdFromLeft = 290 //I want the bird to start in the middle of the window, if the W of my window is 700 -60 ps for the bird = 290 for middle
     let birdFromBottom = 100 //bird starts floating 100 px from the bottom
-
+    let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
+    let poleFromLeft = 700 //start making poles at the farthest end of the sky
+    let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
     //adding start game styling so bird will start in a specific position on the window
     function startGame() {
         birdFromBottom -= downForce // subtracts 2 px each time the space bar is not clicked, gives the effect of falling bird
@@ -34,14 +36,33 @@ document.addEventListener('DOMContentLoaded' , () => {
         document.addEventListener('keyup', spaceBar)
 
         function createPole() {
-            let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
-            let poleFromLeft = 700 //start making poles at the farthest end of the sky
-            let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
             const pole = document.createElement('div') /*  creating a div */
             pole.classList.add('pole') 
             gameWindow.appendChild(pole) // creating a div called pole and appending it to our game window container
             pole.style.left = poleFromLeft + 'px'   // move closer to left 
             pole.style.bottom = poleFromBottom + 'px'
+
+            function poleRoll() { //each time move obstacle is invoked the obstacle will move 2PX to the left
+                poleFromLeft -=2
+                pole.style.left = poleFromLeft + 'px'
+                
+    
+                if (poleFromLeft === -60) {
+                    clearInterval(poleTimer)
+                    gameWindow.removeChild(pole)
+                    
+                }
+                
+                
+            }
+              let poleTimer = setInterval(poleRoll, 19) //moves the obstacle every 19 ms as the object is flying closer to it
+              setTimeout(createPole, 3100) /* every 3.1 seconds when the obstacle has moved off the board, generate a new one */
+
+
+
+
+
+
 
         }   
         createPole()
