@@ -56,3 +56,4 @@ https://stackoverflow.com/questions/54263302/how-do-i-make-random-generating-obj
 - Timing functions: https://tmdarneille.gitbook.io/seirfx/javascript/01functions/03timing-functions
 - CSS Transform property: https://www.w3schools.com/cssref/css3_pr_transform.asp
 - Gap between pole logic: https://www.w3schools.com/JSREF/prop_style_columngap.asp
+- Z index: https://www.w3schools.com/cssref/pr_pos_z-index.asp

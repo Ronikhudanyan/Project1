@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded' , () => {
     const bird = document.querySelector('.bird')
 
     // set up the positioning of the bird once the page is loaded
-    let downForce = 2
+    
     let birdFromLeft = 290 //I want the bird to start in the middle of the window, if the W of my window is 700 -60 ps for the bird = 290 for middle
     let birdFromBottom = 100 //bird starts floating 100 px from the bottom
+    let downForce = 2
     let isGameOver = false
-    let gap = 400
+    let gap = 440
     // let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
     // let poleFromLeft = 700 //start making poles at the farthest end of the sky
     // let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         
         
         }
-        let birdTimer = setInterval(startGame, 19) //everything above to happen every 19 ms
+            let birdTimer = setInterval(startGame, 21) //everything above to happen every 19 ms
 
         function spaceBar(e) {           //insuring only the spacebar can be used
             if(e.keyCode === 32) {
@@ -30,7 +31,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         
         
         function float() {       //Function that is moving the bird up and forward when space bar is clicked
-            if(birdFromBottom<500) birdFromBottom += 50 //as long as bird is under 480 px we can continue jumping this is to stop bird from leaving window
+            if(birdFromBottom<420) birdFromBottom += 50 //as long as bird is under 480 px we can continue jumping this is to stop bird from leaving window
             bird.style.bottom = birdFromBottom + 'px' //adds px everytime the float function is invoked
             console.log(birdFromBottom)
             
@@ -40,11 +41,13 @@ document.addEventListener('DOMContentLoaded' , () => {
 
         function createPole() {
             //let poleFromLeft = 700 //messing around with Scope
-            let randomPoleHeight = Math.random() * 60  //creates a random pole that is with the Width of 60 (because 60 is what i have as the width in css)
             let poleFromLeft = 700 //start making poles at the farthest end of the sky
+            let randomPoleHeight = Math.random() * 60  //creates a random pole that is with the Width of 60 (because 60 is what i have as the width in css)
+            //let poleFromLeft = 700 //start making poles at the farthest end of the sky
             let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
-            const abovePole = document.createElement('div')
+            //const abovePole = document.createElement('div')
             const pole = document.createElement('div') /*  creating a div */
+            const abovePole = document.createElement('div')
             if(!isGameOver){
             pole.classList.add('pole') 
             abovePole.classList.add('abovePole')
@@ -69,9 +72,9 @@ document.addEventListener('DOMContentLoaded' , () => {
                     gameWindow.removeChild(pole)
                     gameWindow.removeChild(abovePole)
                     
-                }
+                } // if poles are between 200 and 280 px position and bird is at 194 < pole 194  or bird 194 > 341
                 if(
-                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap -100) || birdFromBottom === 0) {  
+                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap - 202) || birdFromBottom === 0) {  
                         // if the bird hits the terrain or the poles then invoke youLost, comparing pixels to decide when collision happens
                     youLost()
                     clearInterval(poleTimer)
@@ -80,7 +83,7 @@ document.addEventListener('DOMContentLoaded' , () => {
                 
                 
             }
-              let poleTimer = setInterval(poleRoll, 19) //moves the obstacle every 19 ms as the object is flying closer to it
+              let poleTimer = setInterval(poleRoll, 21) //moves the obstacle every 19 ms as the object is flying closer to it
               if (!isGameOver) setTimeout(createPole, 3100) //if game over is false then continue making new poles every 3.1 milliseconds
 
 
