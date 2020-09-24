@@ -71,9 +71,7 @@ document.addEventListener('DOMContentLoaded' , () => {
                     
                 }
                 if(
-                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && 
-                    (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap -100)||
-                    birdFromBottom === 0) {  
+                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap -100) || birdFromBottom === 0) {  
                         // if the bird hits the terrain or the poles then invoke youLost, comparing pixels to decide when collision happens
                     youLost()
                     clearInterval(poleTimer)
