@@ -31,6 +31,9 @@ Originally I was going to use some login from (logic 01) to generate a new pole 
 - Pole timing interval:
 I had a similar issue here. The timing interval was not getting called, I could not figure out why. Once I reffered back to my notes and in comparison to the bird timer, I realized it was being called within the function rahter than outside the function & if statment. I was also missing the function and only thought I needed to insert the milliseconds.
 
+- Generating new Poles every 3.1 seconds:
+contrary to what I believed before (in pole timing interval), the from from left var needed to be within the scope of the function for it to work. 
+
 
 
 

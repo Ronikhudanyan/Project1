@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded' , () => {
     let downForce = 2
     let birdFromLeft = 290 //I want the bird to start in the middle of the window, if the W of my window is 700 -60 ps for the bird = 290 for middle
     let birdFromBottom = 100 //bird starts floating 100 px from the bottom
-    let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
-    let poleFromLeft = 700 //start making poles at the farthest end of the sky
-    let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
+    let isGameOver = false
+    // let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
+    // let poleFromLeft = 700 //start making poles at the farthest end of the sky
+    // let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
     //adding start game styling so bird will start in a specific position on the window
     function startGame() {
         birdFromBottom -= downForce // subtracts 2 px each time the space bar is not clicked, gives the effect of falling bird
@@ -36,6 +37,10 @@ document.addEventListener('DOMContentLoaded' , () => {
         document.addEventListener('keyup', spaceBar)
 
         function createPole() {
+            //let poleFromLeft = 700 //messing around with Scope
+            let randomPoleHeight = Math.random() * 60  //creates a random pole that is with the Width of 60 (because 60 is what i have as the width in css)
+            let poleFromLeft = 700 //start making poles at the farthest end of the sky
+            let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
             const pole = document.createElement('div') /*  creating a div */
             pole.classList.add('pole') 
             gameWindow.appendChild(pole) // creating a div called pole and appending it to our game window container
@@ -52,6 +57,10 @@ document.addEventListener('DOMContentLoaded' , () => {
                     gameWindow.removeChild(pole)
                     
                 }
+                if(birdFromBottom === 0) {
+                    youLost()
+                }
+                
                 
                 
             }
@@ -60,12 +69,13 @@ document.addEventListener('DOMContentLoaded' , () => {
 
 
 
-
-
-
-
         }   
         createPole()
 
+        function youLost (){
+            clearInterval(birdTimer)
+            isGameOver = true
+            document.removeEventListener('keyup', spaceBar)
+        }
 
 })
