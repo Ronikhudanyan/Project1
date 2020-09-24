@@ -26,3 +26,8 @@ create a jump function
 site sources:
 -Key up events: https://developer.mozilla.org/en-US/docs/Web/API/Document/keyup_event
 -Key Codes: https://keycode.info/
+-Generate random obstacle height logic 01-
+https://github.com/Beat0154/FlappyBird/blob/master/script.js
+
+-generate random obstacle hight logic 02-
+https://stackoverflow.com/questions/54263302/how-do-i-make-random-generating-objects-come-on-my-screen

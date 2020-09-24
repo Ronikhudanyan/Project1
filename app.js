@@ -34,21 +34,17 @@ document.addEventListener('DOMContentLoaded' , () => {
         document.addEventListener('keyup', spaceBar)
 
         function createPole() {
-            var randomPole = -((Math.random()*300)+150);
-            pole.style.top = randomPole + "px";
+            let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
             let poleFromLeft = 700 //start making poles at the farthest end of the sky
-            let poleFromBottom = 150 // so it appears to be floating off the ground
+            let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
             const pole = document.createElement('div') /*  creating a div */
             pole.classList.add('pole') 
             gameWindow.appendChild(pole) // creating a div called pole and appending it to our game window container
             pole.style.left = poleFromLeft + 'px'   // move closer to left 
             pole.style.bottom = poleFromBottom + 'px'
 
+        }   
+        createPole()
 
 
-
-
-
-
-
-}   
+})
