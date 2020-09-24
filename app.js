@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded' , () => {
     const gameWindow = document.querySelector('.game-window')
-    const terrain= document.querySelector('.terrain')
+    const terrain = document.querySelector('.terrain')
     const bird = document.querySelector('.bird')
 
     // set up the positioning of the bird once the page is loaded
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         function float() {       //Function that is moving the bird up and forward when space bar is clicked
             if(birdFromBottom<420)birdFromBottom += 50 //as long as bird is under 480 px we can continue jumping this is to stop bird from leaving window
             bird.style.bottom = birdFromBottom + 'px' //adds px everytime the float function is invoked
+            console.log(birdFromBottom)
             
         }
     
@@ -57,7 +58,9 @@ document.addEventListener('DOMContentLoaded' , () => {
                     gameWindow.removeChild(pole)
                     
                 }
-                if(birdFromBottom === 0) {   // if the bird hits the ground at 0px then invoke youLost
+                if(
+                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290||birdFromBottom === 0) {  
+                        // if the bird hits the terrain or the poles then invoke youLost, comparing pixels to decide when collision happens
                     youLost()
                     clearInterval(poleTimer)
                 }
