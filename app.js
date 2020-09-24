@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded' , () => {
             let poleFromLeft = 700 //start making poles at the farthest end of the sky
             let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
             const pole = document.createElement('div') /*  creating a div */
-            pole.classList.add('pole') 
+            if(!isGameOver)pole.classList.add('pole') 
             gameWindow.appendChild(pole) // creating a div called pole and appending it to our game window container
             pole.style.left = poleFromLeft + 'px'   // move closer to left 
             pole.style.bottom = poleFromBottom + 'px'
@@ -52,20 +52,21 @@ document.addEventListener('DOMContentLoaded' , () => {
                 pole.style.left = poleFromLeft + 'px'
                 
     
-                if (poleFromLeft === -60) {
+                if (poleFromLeft === -4) {  //removes pole when the pole hits end of window
                     clearInterval(poleTimer)
                     gameWindow.removeChild(pole)
                     
                 }
-                if(birdFromBottom === 0) {
+                if(birdFromBottom === 0) {   // if the bird hits the ground at 0px then invoke youLost
                     youLost()
+                    clearInterval(poleTimer)
                 }
                 
                 
                 
             }
               let poleTimer = setInterval(poleRoll, 19) //moves the obstacle every 19 ms as the object is flying closer to it
-              setTimeout(createPole, 3100) /* every 3.1 seconds when the obstacle has moved off the board, generate a new one */
+              if (!isGameOver) setTimeout(createPole, 3100) //if game over is false then continue making new poles every 3.1 milliseconds
 
 
 

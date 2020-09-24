@@ -34,6 +34,12 @@ I had a similar issue here. The timing interval was not getting called, I could 
 - Generating new Poles every 3.1 seconds:
 contrary to what I believed before (in pole timing interval), the from from left var needed to be within the scope of the function for it to work. 
 
+- Stop making new poles when game is over:
+the game was creating poles when the game was already over, wrapped the add element pole life in an if statment. Made a conditional, If the bird has hit the ground or the pole then the game is over stop generating new poles
+
+- Bird/Pole collision:
+I am trying to use the same logic for bird and pole collision as bird and ground collision but it was not working. 
+
 
 
 
