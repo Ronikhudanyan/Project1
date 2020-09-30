@@ -6,35 +6,36 @@
     
 } 
 .sky {
-    background-color: lightblue;
+    background-image: url('skypic650.png');
     width: 700px;
     height: 500px;
     position: absolute;
 }
 .terrain {
-    background-color: brown;
+    background-image: url('terrainmain.png');
+    background-color: rgba(0,0,0,.9);
     width: 700px;
     height: 150px;
     position: absolute;
     top: 500px;   
-    z-index: +1;
+    /* z-index: +1; */
 }
 .bird {
-    background-color: yellow;
+    background-image: url('bird.png');
     position: absolute;
-    width: 60px;
+    width: 131px;
     height: 45px;
     
 }
 .pole {
-    background-color: green;
+    background-image: url('pole.png');
     width: 60px;
     height: 300px;
     position: absolute;
 }
 
 .abovePole {
-    background-color: green;
+    background-image: url('pole.png');
     transform: rotate(180deg);
     width: 60px;
     height: 300px;

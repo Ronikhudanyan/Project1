@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded' , () => {
     const gameWindow = document.querySelector('.game-window')
-    const terrain = document.querySelector('.terrain')
+    const terrain = document.querySelector('.terrain-animation')
     const bird = document.querySelector('.bird')
     const playerDisplay = document.querySelector('.score')
     // set up the positioning of the bird once the page is loaded
@@ -98,6 +98,8 @@ document.addEventListener('DOMContentLoaded' , () => {
             clearInterval(birdTimer)
             isGameOver = true
             document.removeEventListener('keyup', spaceBar)
+            terrain.classList.add('ground')
+            terrain.classList.remove('ground-moving')
         }
 
 })

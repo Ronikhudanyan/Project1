@@ -22,6 +22,8 @@ create a jump function
 
 -once game is over, give an option for reset button
 
+-possibly have a pop up that says the game is getting harder
+
 
 
 Issues I ran into:
@@ -57,3 +59,5 @@ https://stackoverflow.com/questions/54263302/how-do-i-make-random-generating-obj
 - CSS Transform property: https://www.w3schools.com/cssref/css3_pr_transform.asp
 - Gap between pole logic: https://www.w3schools.com/JSREF/prop_style_columngap.asp
 - Z index: https://www.w3schools.com/cssref/pr_pos_z-index.asp
+- keyframes: https://www.youtube.com/watch?v=iUSC_7hcPPo
+- keyframes: https://stackoverflow.com/questions/52014807/what-is-the-difference-between-keyframes-and-webkit-keyframes
