@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     let isGameOver = false
     let gap = 440
     let counter = 0
-    playing = false
+    
     
     // MODAL FUNCTION SECTION- THIS MODAL WILL POP UP INSTRUCTIONS ON THE SCREEN WHEN THE START BUTTON IS PRESSED AND THEN RUN THE GAME
     
@@ -49,9 +49,13 @@ document.addEventListener('DOMContentLoaded' , () => {
         if (modal == null) return
         modal.classList.remove('active')
         overlay.classList.remove('active')
+        createPole()
+        
       }
 
-
+      function clear(){
+        const clear = document.getElementById('form').reset()
+    }
 
 
 
@@ -59,19 +63,18 @@ document.addEventListener('DOMContentLoaded' , () => {
 
     //adding start game styling so bird will start in a specific position on the window
     function startGame() {
-        if (playing === true) {
         birdFromBottom -= downForce // subtracts 2 px each time the space bar is not clicked, gives the effect of falling bird
         bird.style.bottom = birdFromBottom + 'px' 
         bird.style.left = birdFromLeft + 'px'
         
-        }
+        
     }
             let birdTimer = setInterval(startGame, 21) //everything above to happen every 19 ms
 
         function spaceBar(e) {           //insuring only the spacebar can be used
             if(e.keyCode === 32) {
                 float()
-                 playing = true
+                 
             }
         }
         
@@ -140,7 +143,7 @@ document.addEventListener('DOMContentLoaded' , () => {
 
 
         }   
-        createPole()
+         createPole()
 
         function youLost (){
             clearInterval(birdTimer)
@@ -149,5 +152,11 @@ document.addEventListener('DOMContentLoaded' , () => {
             terrain.classList.add('terrain')
             terrain.classList.remove('terrain-animation')
         }
+
+
+
+
+
+
 
 })

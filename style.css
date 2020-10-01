@@ -1,3 +1,16 @@
+@font-face {
+    src: url(future.ttf);
+    font-family: future;
+}
+@font-face {
+    src: url(tr2n.ttf);
+    font-family: tron;
+}
+
+
+
+
+
 body {
 background-image: url('tron-body.jpg');
 
@@ -53,7 +66,7 @@ background-image: url('tron-body.jpg');
     width: 60px;
     height: 650px;
     position:  absolute;
-    background-color: white;
+    background-image: url('borderone.png');
     z-index: +2;
     left: 440px;
 }
@@ -61,7 +74,7 @@ background-image: url('tron-body.jpg');
     width: 60px;
     height: 650px;
     position:  absolute;
-    background-color: white;
+    background-image: url('borderone.png');
     z-index: +2;
     left: 1200px;
 }
@@ -75,9 +88,27 @@ background-image: url('tron-body.jpg');
 }
 .score{
     color: white;
-    left: 800px;
-    top:690px;
+    left: 1350px;
+    top:350px;
     position: absolute;
+    font-family: tron;
+    font-size: 3em;
+    color: #7DFDFE;
+    /* padding:15px 10px 10px 10px;  */
+    width:250px;
+    height:80px;
+    text-align: center; 
+    
+}
+.scorebackground{
+    position: absolute;
+    top: 350px;
+    left:1350px;
+    background-image: url('jooby.gif');
+    height: 90px;
+    width: 250px;
+    z-index: -1;
+    box-shadow: 0 0 5px 10px rgb(0, 0, 0);
 }
 
 @keyframes slideright {
@@ -119,6 +150,37 @@ background-image: url('tron-body.jpg');
 
 
   /* BUTTON MODAL CSS  */
+
+.instructions {
+    position:absolute;
+    top: 200px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid #ACFCFD;
+    border-radius: 0.6em;
+    color: #00A69F;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 1em 4em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: tron;
+    border-color: #3498db;
+    text-shadow: 1px 1px 10px #ffffff, 0 0 5px #d3d3d3;
+    box-shadow: 0 0 40px 40px #7DFDFE inset, 0 0 0 0 #7DFDFE;
+    transition: all 150ms ease-in-out;
+}
+.instructions:hover, .instructions:focus {
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 10px 0 #7DFDFE inset, 0 0 10px 4px #7DFDFE;
+  }
+
+
+
   .modal {
     position: fixed;
     top: 50%;
@@ -128,9 +190,10 @@ background-image: url('tron-body.jpg');
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
-    background-color: white;
+    background-image: url('instructions.jpg');
     width: 500px;
     max-width: 80%;
+    height: 280px;
   }
   
   .modal.active {
@@ -148,6 +211,8 @@ background-image: url('tron-body.jpg');
   .modal-header .title {
     font-size: 1.25rem;
     font-weight: bold;
+    font-family: tron;
+    color: #7DFDFE;
   }
   
   .modal-header .close-button {
@@ -155,12 +220,16 @@ background-image: url('tron-body.jpg');
     border: none;
     outline: none;
     background: none;
-    font-size: 1.25rem;
+    font-size: 1.40rem;
     font-weight: bold;
+    font-family: tron;
+    color: #7DFDFE;
   }
   
   .modal-body {
-    padding: 10px 15px;
+    padding: 30px 40px;
+    font-family: future;
+    color: #7DFDFE;
   }
   
   #overlay {
@@ -175,15 +244,73 @@ background-image: url('tron-body.jpg');
     pointer-events: none;
   }
 
+  #overlay.active {
+    opacity: 20;
+    pointer-events: all;
+  }
 
+   .startbutton {
+    position: absolute;
+    top: 84%;
+    left: 44%;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    border: 2px solid #ACFCFD;
+    border-radius: 0.6em;
+    color: #00A69F;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 1em 4em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: tron;
+    border-color: #3498db;
+    text-shadow: 1px 1px 10px #ffffff, 0 0 5px #d3d3d3;
+    box-shadow: 0 0 40px 40px #7DFDFE inset, 0 0 0 0 #7DFDFE;
+    transition: all 150ms ease-in-out;
+    }
+    .startbutton:hover, .startbutton:focus {
+        color: #fff;
+        outline: 0;
+        box-shadow: 0 0 10px 0 #7DFDFE inset, 0 0 10px 4px #7DFDFE;
+      }
 
+    .gem{
+        position: absolute;
+        top: 250px;
+        left:140px;
+    }
+    .intro{
+        position: absolute;
+        top:570px;
+        left:135px;
+        color:#7DFDFE;
+        font-family:future;
+        font-size: .7cm;
+        text-shadow: 1px 1px 5px #ffffff, 0 0 5px #00b6b6;
+    }
 
+    .further{
+        position: absolute;
+        top:595px;
+        left:60px;
+        color:#7DFDFE;
+        font-family:future;
+        font-size: .7cm;
+        text-shadow: 1px 1px 5px #ffffff, 0 0 5px #00b6b6;
+    }
 
-
-
-
-
-
+    .titles{
+        position: absolute;
+        top:80px;
+        left:60px;
+        color:#7DFDFE;
+        font-family:tron;
+        font-size: 1.2cm; 
+        text-shadow: 1px 1px 5px #ffffff, 0 0 5px #00b6b6;  
+    }
 
 
 
