@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded' , () => {
             clearInterval(birdTimer)
             isGameOver = true
             document.removeEventListener('keyup', spaceBar)
-            terrain.classList.add('ground')
-            terrain.classList.remove('ground-moving')
+            terrain.classList.add('terrain')
+            terrain.classList.remove('terrain-animation')
         }
 
 })

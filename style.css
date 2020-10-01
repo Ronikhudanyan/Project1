@@ -1,3 +1,8 @@
+body {
+background-image: url('tron-body.jpg');
+
+}
+
 .game-window {
     width: 700px;
     height: 650px;
@@ -8,16 +13,16 @@
 .sky {
     background-image: url('skypic650.png');
     width: 700px;
-    height: 500px;
+    height: 600px;
     position: absolute;
+    z-index: -1;
 }
 .terrain {
     background-image: url('terrainmain.png');
-    background-color: rgba(0,0,0,.9);
     width: 700px;
     height: 150px;
     position: absolute;
-    top: 500px;   
+    top: 500px;  
     /* z-index: +1; */
 }
 .bird {
@@ -35,8 +40,8 @@
 }
 
 .abovePole {
-    background-image: url('pole.png');
-    transform: rotate(180deg);
+    background-image: url('abovepolethree.png');
+    /* transform: rotate(180deg); */
     width: 60px;
     height: 300px;
     position: absolute;
@@ -62,12 +67,160 @@
     width: 760px;
     height: 70px;
     position:  absolute;
-    background-color: white;
+    background-color: black;
     z-index: +2;
     top: -70px;
 }
 .score{
+    color: white;
     left: 800px;
     top:690px;
     position: absolute;
 }
+
+@keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+  
+  @-webkit-keyframes slideright {
+    from {
+        background-position: 10000%;
+    }
+    to {
+        background-position: 0%;
+    }
+  }
+
+  .terrain-container {
+    height: 150px;
+    width: 500px;
+    left: 0px;
+    position:  absolute;
+}
+.terrain-animation {
+    position: absolute;
+    top: 500px;
+    height: 150px;
+    background-image: url('terrainmain.png');
+    background-repeat: repeat-x;
+    animation: slideright 100s infinite linear;
+    -webkit-animation: slideright 100s infinite linear;
+    width: 139%;
+    /* z-index: +1; */
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @keyframes slide {
+    0%,100% {
+        margin-left:0%;
+    }
+
+    12% {
+        margin-left:0%;
+    }
+
+    24% {
+        margin-left:-100%;
+    }
+
+    36% {
+        margin-left:-100%;
+    }
+
+    48% {
+        margin-left:-200%;
+    }
+
+    60% {
+        margin-left:-200%;
+    }
+
+    72% {
+        margin-left:-300%;
+    }
+
+    84% {
+        margin-left:-300%;  
+    }
+}
+
+  @-webkit-keyframes slide {
+    0%,100% {
+        margin-left:0%;
+    }
+
+    12% {
+        margin-left:0%;
+    }
+
+    24% {
+        margin-left:-100%;
+    }
+
+    36% {
+        margin-left:-100%;
+    }
+
+    48% {
+        margin-left:-200%;
+    }
+
+    60% {
+        margin-left:-200%;
+    }
+
+    72% {
+        margin-left:-300%;
+    }
+
+    84% {
+        margin-left:-300%;  
+    }
+  }
+
+  
+  /* .terrain-animation {
+    position: absolute;
+    top: 580px;
+    height: 150px;
+    background-image: url('terrainmain.png');
+    background-repeat: repeat-x;
+    animation: slideright 100s infinite linear;
+    -webkit-animation: slideright 100s infinite linear;
+    width: 100%;
+     z-index: +1; 
+  } */ 
