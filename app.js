@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded' , () => {
     const terrain = document.querySelector('.terrain-animation')
     const bird = document.querySelector('.bird')
     const playerDisplay = document.querySelector('.score')
+    const openModalButtons = document.querySelectorAll('[data-modal-target]')
+    const closeModalButtons = document.querySelectorAll('[data-close-button]')
+    const overlay = document.getElementById('overlay')
     // set up the positioning of the bird once the page is loaded
     
     let birdFromLeft = 290 //I want the bird to start in the middle of the window, if the W of my window is 700 -60 ps for the bird = 290 for middle
@@ -11,22 +14,64 @@ document.addEventListener('DOMContentLoaded' , () => {
     let isGameOver = false
     let gap = 440
     let counter = 0
-    // let randomPoleHeight = Math.random() * 60  /* every time the page is reloaded a new obstacle is generated at a random height */
-    // let poleFromLeft = 700 //start making poles at the farthest end of the sky
-    // let poleFromBottom = randomPoleHeight // so it appears to be floating off the ground
+    playing = false
+    
+    // MODAL FUNCTION SECTION- THIS MODAL WILL POP UP INSTRUCTIONS ON THE SCREEN WHEN THE START BUTTON IS PRESSED AND THEN RUN THE GAME
+    
+    openModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const modal = document.querySelector(button.dataset.modalTarget)
+          openModal(modal)
+        })
+      })
+      
+      overlay.addEventListener('click', () => {
+        const modals = document.querySelectorAll('.modal.active')
+        modals.forEach(modal => {
+          closeModal(modal)
+        })
+      })
+      
+      closeModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const modal = button.closest('.modal')
+          closeModal(modal)
+        })
+      })
+      
+      function openModal(modal) {
+        if (modal == null) return
+        modal.classList.add('active')
+        overlay.classList.add('active')
+      }
+      
+      function closeModal(modal) {
+        if (modal == null) return
+        modal.classList.remove('active')
+        overlay.classList.remove('active')
+      }
+
+
+
+
+
+    //   document.getElementsByClassName('close-button').addEventListener('click', startGame)
+
     //adding start game styling so bird will start in a specific position on the window
     function startGame() {
+        if (playing === true) {
         birdFromBottom -= downForce // subtracts 2 px each time the space bar is not clicked, gives the effect of falling bird
         bird.style.bottom = birdFromBottom + 'px' 
         bird.style.left = birdFromLeft + 'px'
         
-        
         }
+    }
             let birdTimer = setInterval(startGame, 21) //everything above to happen every 19 ms
 
         function spaceBar(e) {           //insuring only the spacebar can be used
             if(e.keyCode === 32) {
                 float()
+                 playing = true
             }
         }
         
@@ -77,7 +122,10 @@ document.addEventListener('DOMContentLoaded' , () => {
                     
                 } // if poles are between 200 and 280 px position and bird is at 194 < pole 194  or bird 194 > 341
                 if(
-                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap - 202) || birdFromBottom === 0) {  
+                    poleFromLeft > 200 && poleFromLeft < 280 && birdFromLeft === 290 && 
+                    (birdFromBottom < poleFromBottom + 153 || birdFromBottom > poleFromBottom + gap -100) || 
+                    birdFromBottom === 0
+                    ) {  
                         // if the bird hits the terrain or the poles then invoke youLost, comparing pixels to decide when collision happens
                     youLost()
                     clearInterval(poleTimer)
