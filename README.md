@@ -53,6 +53,9 @@ the game was creating poles when the game was already over, wrapped the add elem
 * - Bird/Pole collision:
 I am trying to use the same logic for bird and pole collision as bird and ground collision but it was not working. ended up adding an if statment that will calulate the placment of the pole vs my bird. I was having trouble with this and was about to give up. The game was ending every time it flew over a pole. I messed around with the pixel numbers  and got it to somewhere reasonable
 
+* - JPG and PNG use:
+I had a very specific idea on how I wanted this game to look, there fore i used custom made PNGs and photoshopped images all over the place. I found myself spending way too much time trying to reedit these photos to fit with my game. Because I was using JPG and PNG files the pixel counts were not always exact. This game logic is built off exact pixel counts, so since I was using custom made images It was hard to perfect collision detection, image placement, and overall look & feel of the game. 
+
 
 
 
